@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+
+  <!-- 添加React的依赖 -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script type="text/babel">
+    class APP extends React.Component {
+      constructor() {
+        super(),
+          this.state = {
+            //在{}可以正常显示的数据
+
+            message: "Hello World",//String
+            number: 18, //array
+            array: ["aa", "bbb", 15],//array
+
+            //在react不能正常显示 null undefined, 对象 
+            test1: null,
+            test2: undefined,
+            test3: {
+              name: "zz",
+              age: 18
+            }
+          }
+      }
+      render() {
+        return (
+          <div>
+            <h2>{this.state.message}</h2>
+            <h2>{this.state.number}</h2>
+            <h2>{this.state.array}</h2>
+
+            <h2>{this.state.test1}</h2>
+            <h2>{this.state.test2 + ""}</h2>
+
+
+          </div>
+        )
+      }
+
+    }
+
+    ReactDOM.render(<APP />, document.getElementById("app"));
+  </script>
+
+</body>
+
+</html>

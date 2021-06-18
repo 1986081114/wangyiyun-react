@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <button id="myBtn">btn</button>
+    <script>
+        document.getElementById("myBtn").addEventListenerr("click", (e) => {
+
+            console.log(e)
+        })
+    </script>
+
+
+    <!-- 添加React的依赖 -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        class APP extends React.Component {
+            constructor() {
+                super(),
+                    this.state = {
+                        message: "Hello World"
+                    }
+                this.btnClick12 = this.btnClick12.bind(this)
+            }
+            render() {
+                return (
+                    <div>
+                        {/* 1.方案一: bind绑定this(显示绑定) */}
+                        <button onClick={this.btnClick1.bind(this)}>绑定方法1</button>
+                        <button onClick={this.btnClick12()}>绑定方法1.2</button>
+                        {/* 2.方案二: 定义函数时, 使用箭头函数
+                     // 箭头函数中永远不绑定this
+                     所以在箭头函数使用this会去上一级查找this
+                    // ES6中给对象增加属性: class fields
+                     
+                    */}
+                        <button onClick={this.btnClick2}>绑定方法2</button>
+                        {/* 3.方案三(推荐): 直接传入一个箭头函数, 在箭头函数中调用需要执行的函数*/}
+                        <button onClick={() => { this.btnClick3() }}>绑定方法3</button>
+                        <button onClick={() => { this.btnClick32("why") }}>绑定方法3.2</button>
+                        {/*4.进行函数调用*/}
+                        <h2>{this.getFullName()}</h2>
+                    </div>
+                )
+            }
+
+            btnClick1() {
+                console.log(this.state.message)
+            }
+            btnClick12() {
+                console.log(this.state.message)
+            }
+            btnClick2 = () => {
+                console.log(this.state.message)
+            }
+            btnClick3() {
+                console.log(this.state.message)
+            }
+            btnClick32(name) {
+                console.log(this.state.message, name)
+            }
+
+            getFullName() {
+                return this.state.message;
+            }
+
+        }
+
+        ReactDOM.render(<APP />, document.getElementById("app"));
+    </script>
+
+</body>
+
+</html>

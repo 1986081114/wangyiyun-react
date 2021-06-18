@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+   //ES5定义
+    let a = 0;
+    class Person_class {}
+    function f() {}
+    function Person (name, age) {
+        this.age = age
+        this.name = name
+
+    }
+    Person.prototype.running = function() {
+        console.log(this.name, this.age, "running")
+    }
+    console.log(Person)
+    var p = new Person("zhao", 18)
+    console.log(p)
+    p.running()
+
+
+   
+  </script>
+</body>
+</html>

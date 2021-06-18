@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+
+  <!-- 添加React的依赖 -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+ <script type="text/babel">
+  class APP extends React.Component {
+      constructor() {
+          super(),
+          this.state = {
+          number: 0
+        }
+      }
+      render() {
+          return(
+              <div>
+                 <h2>当前计数{this.state.number}</h2>
+                 <button onClick={this.inCrement}>+1</button>
+                 <button onClick={this.deCrement}>-1</button>
+                 <button onClick={this.testCrement()}>1</button>
+              </div>
+          )
+      }
+      inCrement = ()=> {
+          this.setState( {
+              number: this.state.number + 1
+          })
+        }
+        deCrement = ()=> {
+            this.setState( {
+              number: this.state.number - 1
+          })
+      }
+      testCrement() {
+          console.log(55)
+      }
+  }
+
+  
+
+ ReactDOM.render(<APP/>, document.getElementById("app"));
+  </script>
+
+</body>
+
+</html>

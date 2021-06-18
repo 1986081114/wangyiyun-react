@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+  <!-- 添加React的依赖 -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <!--<script>
+    // jsx -> babel -> React.createElement()
+    const message1 = <h2>Hello React</h2>;
+    const message2 = React.createElement("h2", null, "Hello React");
+
+    ReactDOM.render(message1, document.getElementById("app"));
+
+  </script>
+-->
+
+  <script type="text/babel">
+    class App extends React.Component {
+      constructor(props) {
+        super(props);
+
+        this.state = {
+
+        }
+      }
+
+      render() {
+        // jsx -> createElement函数 -> ReactElement(对象树) -> ReactDOM.render -> 真实DOM
+        // jsx -> createElement函数 -> ReactElement(对象树) -> ReactDOM.render -> 原生的控件(UIButton/Button)
+
+        var reactElement = React.createElement("div", {
+          className: "contar"
+        }, /*#__PURE__*/React.createElement("div", {
+          className: "header1"
+        }, /*#__PURE__*/React.createElement("h1", {
+          title: "\u6807\u9898"
+        }, "\u6211\u662F\u6807\u9898")), /*#__PURE__*/React.createElement("div", {
+          className: "content"
+        }, /*#__PURE__*/React.createElement("h2", null, "\u6211\u662F\u9875\u9762\u7684\u5185\u5BB9"), /*#__PURE__*/React.createElement("button", null, "\u6309\u94AE"), /*#__PURE__*/React.createElement("button", null, "+1"), /*#__PURE__*/React.createElement("a", {
+          href: "http://www.baidu.com"
+        }, "\u767E\u5EA6\u4E00\u4E0B")), /*#__PURE__*/React.createElement("div", {
+          className: "footer"
+        }, /*#__PURE__*/React.createElement("p", null, "\u6211\u662F\u5C3E\u90E8\u7684\u5185\u5BB9")));
+        console.log(reactElement)
+
+        console.log(reactElement)
+        return reactElement;
+
+      }
+    }
+
+    ReactDOM.render(<App />, document.getElementById("app"));
+  </script>
+
+
+</body>
+
+</html>
